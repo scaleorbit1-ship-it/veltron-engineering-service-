@@ -1,31 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CustomRepairInput } from './components/CustomRepairInput';
-
-// SVG placeholder generator for missing image files
-const getSvgPlaceholder = (title: string) => {
-  const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
-    <rect width="800" height="600" fill="#0b1a2e"/>
-    <rect x="20" y="20" width="760" height="560" fill="none" stroke="#1d588f" stroke-width="2" stroke-dasharray="8 8" rx="12"/>
-    <g transform="translate(400, 240)" text-anchor="middle">
-      <rect x="-40" y="-40" width="80" height="80" rx="16" fill="#1d588f" />
-      <circle cx="0" cy="0" r="24" fill="none" stroke="#38bdf8" stroke-width="4"/>
-      <path d="M-12,0 L12,0 M0,-12 L0,12" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
-    </g>
-    <text x="400" y="350" font-family="'Archivo', sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">${title.toUpperCase()}</text>
-    <text x="400" y="380" font-family="'Archivo', sans-serif" font-size="13" font-weight="600" fill="#38bdf8" text-anchor="middle" letter-spacing="0.06em">VELTRON ENGINEERING SERVICE LIMITED — 100% MOBILE FIELD DISPATCH</text>
-  </svg>`;
-  return `data:image/svg+xml;utf8,${encodeURIComponent(svgStr)}`;
-};
-
-const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>, label: string) => {
-  const target = e.currentTarget;
-  target.onerror = null; // Prevent infinite loops
-  target.src = getSvgPlaceholder(label);
-};
-
-import processImg2 from './assets/images/regenerated_image_1786487064372.webp';
-import heroBg1 from './assets/images/hero-bg-1.webp';
-import heroBg2 from './assets/images/hero-bg-2.webp';
 import aboutImg1 from './assets/images/user_headshot_woman.jpg';
 import aboutImg2 from './assets/images/user_headshot_man.jpg';
 import turbineOverhaulImg from './assets/images/turbine_overhaul.png';
@@ -36,8 +10,6 @@ import dieselWorkbenchImg from './assets/images/diesel_fuel_overhaul_workbench.p
 import hydraulicRepairImg from './assets/images/hydraulic_cylinder_repair.png';
 import mechanicalGearboxImg from './assets/images/mechanical_gearbox_overhaul.png';
 import pneumaticManifoldImg from './assets/images/pneumatic_valve_manifold.png';
-import veltronLogo from './assets/images/veltron-logo.svg';
-import veltronLogoLight from './assets/images/veltron-logo-light.svg';
 import { 
   Settings, 
   Droplets, 
@@ -62,6 +34,34 @@ import {
   Users,
   UserCheck
 } from 'lucide-react';
+
+const heroBg1 = '/hero-bg-1.webp';
+const heroBg2 = '/hero-bg-2.webp';
+const processImg2 = mechanicalGearboxImg;
+const veltronLogo = '/images/veltron-logo.svg';
+const veltronLogoLight = '/images/veltron-logo-light.svg';
+
+// SVG placeholder generator for missing image files
+const getSvgPlaceholder = (title: string) => {
+  const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+    <rect width="800" height="600" fill="#0b1a2e"/>
+    <rect x="20" y="20" width="760" height="560" fill="none" stroke="#1d588f" stroke-width="2" stroke-dasharray="8 8" rx="12"/>
+    <g transform="translate(400, 240)" text-anchor="middle">
+      <rect x="-40" y="-40" width="80" height="80" rx="16" fill="#1d588f" />
+      <circle cx="0" cy="0" r="24" fill="none" stroke="#38bdf8" stroke-width="4"/>
+      <path d="M-12,0 L12,0 M0,-12 L0,12" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <text x="400" y="350" font-family="'Archivo', sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">${title.toUpperCase()}</text>
+    <text x="400" y="380" font-family="'Archivo', sans-serif" font-size="13" font-weight="600" fill="#38bdf8" text-anchor="middle" letter-spacing="0.06em">VELTRON ENGINEERING SERVICE LIMITED — 100% MOBILE FIELD DISPATCH</text>
+  </svg>`;
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svgStr)}`;
+};
+
+const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>, label: string) => {
+  const target = e.currentTarget;
+  target.onerror = null; // Prevent infinite loops
+  target.src = getSvgPlaceholder(label);
+};
 
 const featuredCapabilities = [
   {
