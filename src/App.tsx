@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CustomRepairInput } from './components/CustomRepairInput';
+import { PageLoader } from './components/PageLoader';
 import aboutImg2 from './assets/images/user_headshot_man.jpg';
 import turbineOverhaulImg from './assets/images/turbine_overhaul.png';
 import processInspectionImg from './assets/images/process_inspection.png';
@@ -250,9 +251,12 @@ export default function App() {
   const [urgency, setUrgency] = useState('Scheduled');
   const [equipmentType, setEquipmentType] = useState('Heavy Machinery');
 
+  // Page Loader State
+  const [isLoading, setIsLoading] = useState(true);
+
   // Form State
   const [enquirySubmitted, setEnquirySubmitted] = useState(false);
-  const [siteLocation, setSiteLocation] = useState('Mansion House, Manchester Road, Altrincham, Cheshire, England, WA14 4RW');
+  const [siteLocation, setSiteLocation] = useState('Mansion House, Manchester Road, Altrincham, Cheshire, WA14 4RW');
   const [customRepairText, setCustomRepairText] = useState('Mechanical Systems (Drive Train, Gearbox, Turbine & Heavy Shaft Overhaul)');
 
   useEffect(() => {
@@ -340,6 +344,9 @@ export default function App() {
 
   return (
     <div className="frame">
+      {/* PAGE PRELOADER */}
+      {isLoading && <PageLoader onFinish={() => setIsLoading(false)} />}
+
       {/* MOBILE DRAWER */}
       <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-drawer-head">
@@ -564,20 +571,8 @@ export default function App() {
           </div>
         </div>
 
-        {/* ABOUT FEATURE IMAGES SHOWCASE GRID */}
-        <div className="about-images-grid reveal">
-          <div className="about-banner-container">
-            <img
-              src={processInspectionImg}
-              alt="Veltron Engineering Certified Field Diagnostics & On-Site Machinery Inspection"
-              onError={(e) => handleImgError(e, 'Certified Field Diagnostics')}
-            />
-            <div className="about-banner-overlay">
-              <span className="about-banner-tag">
-                <ShieldCheck className="w-4 h-4 text-sky-400" /> Certified Field Diagnostics & On-Site Inspection
-              </span>
-            </div>
-          </div>
+        {/* ABOUT FEATURE IMAGE SHOWCASE */}
+        <div className="about-single-container reveal my-8">
           <div className="about-banner-container">
             <img
               src={aboutImg2}
@@ -586,7 +581,7 @@ export default function App() {
             />
             <div className="about-banner-overlay">
               <span className="about-banner-tag">
-                <UserCheck className="w-4 h-4 text-sky-400" /> Lead Field Engineer — Task & Operations Lead
+                <UserCheck className="w-4 h-4 text-sky-400" /> Lead Field Engineer — Mobile On-Site Operations
               </span>
             </div>
           </div>
@@ -909,7 +904,7 @@ export default function App() {
               </div>
               <div className="cd-text">
                 <div className="lbl">Direct Field Dispatch Desk</div>
-                <div className="val">info@veltronengineering.co.uk</div>
+                <div className="val">samuelugwuleboveltronengineeri@gmail.com</div>
               </div>
             </div>
           </div>
@@ -1043,8 +1038,8 @@ export default function App() {
                 <div className="cd-text">
                   <div className="lbl">Direct Field Service Email</div>
                   <div className="val">
-                    <a href="mailto:info@veltronengineering.co.uk" style={{ color: '#1d588f' }}>
-                      info@veltronengineering.co.uk
+                    <a href="mailto:samuelugwuleboveltronengineeri@gmail.com" style={{ color: '#1d588f' }}>
+                      samuelugwuleboveltronengineeri@gmail.com
                     </a>
                   </div>
                 </div>
@@ -1181,8 +1176,8 @@ export default function App() {
             >
               <MessageCircle className="w-4 h-4" /> Message on WhatsApp ↗
             </a>
-            <a className="btn-light" href="mailto:info@veltronengineering.co.uk">
-              info@veltronengineering.co.uk ↗
+            <a className="btn-light" href="mailto:samuelugwuleboveltronengineeri@gmail.com">
+              samuelugwuleboveltronengineeri@gmail.com ↗
             </a>
           </div>
         </div>

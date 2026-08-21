@@ -77,8 +77,9 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .specialized-tag-item{background:#0b1a2e;color:#ffffff;padding:12px 20px;border-radius:8px;font-size:14.5px;font-weight:600;display:flex;align-items:center;gap:10px;transition:transform .2s,background .2s}
 .specialized-tag-item:hover{background:#102a45;transform:translateY(-2px)}
 
-/* About Feature Image Showcase Grid */
+/* About Feature Image Showcase */
 .about-images-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:32px 0 40px 0;width:100%}
+.about-single-container{width:100%;margin:28px 0 36px 0}
 .about-banner-container{position:relative;width:100%;height:clamp(260px,30vw,380px);overflow:hidden;border-radius:8px;box-shadow:0 12px 32px rgba(11,26,46,0.12);border:1px solid #cbd5e1}
 .about-banner-container img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s ease}
 .about-banner-container:hover img{transform:scale(1.03)}
